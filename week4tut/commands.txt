@@ -1,0 +1,39 @@
+#install angular
+npm install –g @angular/cli
+
+#create a new angular project
+ng new week4tut --standalone
+
+#change into the new angular project folder
+cd week4tut/
+
+#build the angular project
+ng build
+
+#serve the angular project, and open
+ng serve --open
+
+#install bootstrap to the angular project
+npm install bootstrap --save
+
+#generate a login component
+ng generate component login
+
+#generate a account component
+ng generate component account
+
+##Git commands
+#initialise a local git repository
+git init
+
+#add all files
+git add -A
+
+#commit files
+git commit -m "Week 4 Tutorial setup"
+
+#add the github repo to the local files
+git remote add origin https://github.com/AshleyPer/Week4.git
+
+#push to github
+git push --set-upstream origin master
