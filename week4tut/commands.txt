@@ -23,17 +23,11 @@ ng generate component login
 ng generate component account
 
 ##Git commands
-#initialise a local git repository
-git init
-
 #add all files
 git add -A
 
 #commit files
 git commit -m "Week 4 Tutorial setup"
 
-#add the github repo to the local files
-git remote add origin https://github.com/AshleyPer/Week4.git
-
 #push to github
-git push --set-upstream origin master
+git push
