@@ -1,5 +1,5 @@
 #install angular
-npm install –g @angular/cli
+npm install -g @angular/cli
 
 #create a new angular project
 ng new week4tut --standalone
@@ -31,3 +31,16 @@ git commit -m "Week 4 Tutorial setup"
 
 #push to github
 git push
+
+
+#Create a service
+ng generate service data
+
+#Create a profile component
+ng generate component profile
+
+#Sign up component
+ng generate component signup
+
+#Auth service
+ng generate service auth
