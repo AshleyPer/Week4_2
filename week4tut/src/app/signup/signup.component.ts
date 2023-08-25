@@ -1,8 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Router } from '@angular/router';
 import { FormsModule } from '@angular/forms';
+import { Router } from '@angular/router';
 import { AuthService } from '../auth.service';
 
 const httpOptions = {
@@ -10,18 +10,19 @@ const httpOptions = {
 }
 
 import { Userpwd } from '../userpwd';
-import { Userobj } from '../userobj';
+import { UserobjSignUp } from '../userobjSignUp';
 
 const BACKEND_URL = "http://localhost:3000";
 
 @Component({
-  selector: 'app-login',
+  selector: 'app-signup',
   standalone: true,
   imports: [CommonModule, FormsModule],
-  templateUrl: './login.component.html',
-  styleUrls: ['./login.component.scss']
+  templateUrl: './signup.component.html',
+  styleUrls: ['./signup.component.scss']
 })
-export class LoginComponent implements OnInit{
+
+export class SignupComponent {
   username:string = '';
   password:string = '';
   email: string = '';
@@ -29,23 +30,20 @@ export class LoginComponent implements OnInit{
   userage: number = 0;
 
   userpwd: Userpwd = {username : '', pwd : ''};
-  userobj: Userobj = {userid : 1, username : '', email: '', userbirthdate: '', userage: 0};
-
-  loginFail: Boolean;
+  userobj: UserobjSignUp = {userid : 1, username : '', password : '', email: '', userbirthdate: '', userage: 0};
   
+  signupFail: Boolean;
+
   constructor(private router: Router, private httpClient: HttpClient, private authService: AuthService){
-    this.loginFail = false;
+    this.signupFail = false;
   }
 
-  ngOnInit(): void {}
-
-  public loginFunc(){
+  public signUpFunc(){
     this.userpwd = {username : this.username, pwd : this.password};
-    this.userobj = {userid : 1, username : this.userpwd.username, email: this.email, userbirthdate: this.userbirthdate, userage: this.userage};
-    //console.log(this.userpwd);
-    this.httpClient.post(BACKEND_URL + '/api/auth', this.userpwd, httpOptions)
+    this.userobj = {userid : 1, username : this.userpwd.username, password : this.userpwd.pwd, email: this.email, userbirthdate: this.userbirthdate, userage: this.userage};
+    console.log(this.userobj);
+    this.httpClient.post(BACKEND_URL + '/api/signup', this.userobj, httpOptions)
     .subscribe((data: any) =>{
-      //alert(JSON.stringify(this.userpwd));
       if(data.ok){
         console.log('data=',data.age);
         sessionStorage.setItem('username', data.username);
@@ -56,7 +54,7 @@ export class LoginComponent implements OnInit{
         this.authService.setLoggedIn(true);
         this.router.navigateByUrl('account');
       }else{
-        this.loginFail = true;
+        this.signupFail = true;
       }
     })
   }

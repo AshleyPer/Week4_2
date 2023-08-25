@@ -1,4 +1,4 @@
-<h2>Login Page</h2>
+<h2>Signup Page</h2>
 <form>
     <div class="form-group mb-4">
         <label class="mb-2" for="username">Username</label>
@@ -8,7 +8,7 @@
         <label class="mb-2" for="exampleInputPassword1">Password</label>
         <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password" [(ngModel)]="password" name="password">
     </div>
-    <!--<div class="form-group mb-4">
+    <div class="form-group mb-4">
         <label class="mb-2" for="exampleInputEmail1">Email address</label>
         <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email" [(ngModel)]="email" name="email">
     </div>
@@ -19,9 +19,9 @@
     <div class="form-group mb-4">
         <label class="mb-2" for="age">Age</label>
         <input type="number" class="form-control" id="age" aria-describedby="age" placeholder="Enter Age" [(ngModel)]="userage" name="age">
-    </div>-->
-    <button class="btn btn-primary" value="Login" id="login" (click)="loginFunc()" type="submit">Login</button>
-    <div *ngIf="loginFail">
-        <div class="alert alert-danger mt-3" role="alert">Sorry, username or password is not valid, or that user is not valid.</div>
+    </div>
+    <button class="btn btn-primary" value="Signup" id="signup" (click)="signUpFunc()" type="submit">Signup</button>
+    <div *ngIf="signupFail">
+        <div class="alert alert-danger mt-3" role="alert">Sorry, that username has been taken.</div>
     </div>
 </form>

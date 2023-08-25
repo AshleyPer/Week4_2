@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
 
@@ -9,6 +9,16 @@ import { Router } from '@angular/router';
   templateUrl: './account.component.html',
   styleUrls: ['./account.component.scss']
 })
-export class AccountComponent {
+export class AccountComponent implements OnInit{
+  username = sessionStorage.getItem("username");
+  birthdate = sessionStorage.getItem("userbirthdate");
+  userage = sessionStorage.getItem("userage");
 
+  constructor(private router:Router){}
+  
+  ngOnInit(): void {
+    if(this.username == null){
+      this.router.navigateByUrl('login');
+    }
+  }
 }

@@ -1,0 +1,20 @@
+<h2>Profile Page</h2>
+<form>
+    <div class="form-group mb-4">
+        <label class="mb-2" for="username">Username</label>
+        <input class="form-control" id="username" [(ngModel)]="username" name="username">
+    </div>
+    <div class="form-group mb-4">
+        <label class="mb-2" for="exampleInputEmail1">Email address</label>
+        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" [(ngModel)]="email" name="email">
+    </div>
+    <div class="form-group mb-4">
+        <label class="mb-2" for="birthdate">Birthdate</label>
+        <input type="date" class="form-control" id="birthdate" aria-describedby="birthdate" [(ngModel)]="birthdate" name="birthdate">
+    </div>
+    <div class="form-group mb-4">
+        <label class="mb-2" for="age">Age</label>
+        <input type="number" class="form-control" id="age" aria-describedby="age" placeholder="Enter Age" [(ngModel)]="userage" name="age">
+    </div>
+    <button class="btn btn-primary" value="Submit" id="submit" (click)="editFunc()" type="submit">Submit</button>
+</form>
